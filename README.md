@@ -3,7 +3,7 @@ django-angular-auth
 
 This is based on [HTTP Auth Interceptor Module Demo] and uses [Tastypie] to provide the JSON API for the [AngularJS] front-end.
 
-Django is used only to provide the API and also for it's admin.
+Django is used to provide the API and for it's admin.
 
 Setup
 -----------
@@ -15,18 +15,18 @@ It's assumed you have Python and Postgres already installed.
 * Run ```python manage.py syncdb --migrate```
 * Go into static directory and run ```python -m SimpleHTTPServer```. I created a serve.bat file for this. This is the Angular app.
 * Start Django. ```python runserver 0.0.0.0:8001``` I created a batch file for this called r.bat. This is your API and admin.
-* Go to [http://localhost:8000/]. This is the Angular app. It's being served directly via SimpleHTTPServer. It can be served from anywhere, even Amazon. There might be cross domain
+* Go to [http://localhost:8000/]. This is the Angular app. It's being served directly via SimpleHTTPServer. It can be served from anywhere, even Amazon. There might be cross domain issues if you're hosting on a different domain.
 
 Use it
 ----------
-So now we have the Admin and front-end client both running. Let's test
+Now we have the admin and front-end client both running. Let's test.
 
 * With your browser pointed to [http://localhost:8000/], enter some data in the field and click "submit". You will get a login prompt.
 * Login.
 
-You will get a "missing key" error message. This is because your user does not have API access. To add access, go to [http://localhost:8001/admin/tastypie/apikey/add/] and add a key. Any key will do.
+You will get a "missing key" error message. This is because your user does not have API access. To add access, go to http://localhost:8001/admin/tastypie/apikey/add/ and add a key. Any key will do. You can have this key added automatically for new users by uncommenting out the signal at the bottom of myproperty/models.py.
 
-Go back and try to login again. This time, your login worked! Find your just added data at [http://localhost:8001/admin/myproperty/paymenttype/].
+Go back and try to login again. This time, your login worked! Find your just added data at http://localhost:8001/admin/myproperty/paymenttype/.
 
 What's Happening
 --------------
@@ -40,6 +40,10 @@ This TastyPie class looks for the API key in the GET/POST or header. We are usin
 
 Because Django returns a status code 401, Angular intercepts this (lib/http-auth-interceptor.js ~line 61) and instead displays the login screen. Once you have a valid API key, it replays your API call and continues where it left off.
 
+Future
+-------
+This is a very basic demo. I hope it helps shortcut getting you started with AngularJS and Django. You might want to add additional checking in your TastyPie authentication so that the API key expires after a certain amount of time, or even if the IP changes.
+
 License
 -------
 MIT
@@ -51,6 +55,7 @@ MIT
   [AngularJS]: http://angularjs.org/
   [django-angular-auth]: https://github.com/edmenendez/django-angular-auth
   [ApiKeyAuthentication]: http://django-tastypie.readthedocs.org/en/latest/authentication_authorization.html#apikeyauthentication
+  [http://localhost:8000/]: http://localhost:8000/
 
 Version
 -
