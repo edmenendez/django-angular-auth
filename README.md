@@ -3,7 +3,7 @@ django-angular-auth
 
 This is based on [HTTP Auth Interceptor Module Demo] and uses [Tastypie] to provide the JSON API for the [AngularJS] front-end.
 
-Django is used to provide the API and for it's admin.
+Django is used to provide the API and for its admin.
 
 Setup
 -----------
