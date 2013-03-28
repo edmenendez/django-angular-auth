@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <title>My AngularJS App</title>
+  <link rel="stylesheet" href="css/app.css"/>
+  <link rel="stylesheet" href="css/main.css" type="text/css" media="screen" />
+</head>
+<body class="auth-demo-application waiting-for-angular">
+  <ul class="menu">
+    <li><a href="#/view1">view1</a></li>
+    <li><a href="#/view2">view2</a></li>
+  </ul>
+
+  <div ng-view></div>
+
+  <div>Angular seed app: v<span app-version></span></div>
+
+  <hr/>
+
+  <div id="initializing-panel"></div>
+
+  <div id="content-outer">
+
+    <div id="login-holder">
+      <div id="loginbox">
+        <div id="login-inner" ng-controller="LoginController">
+          <div style="color: red;">{{ errorMsg }}&nbsp;</div><br>&nbsp;
+          <form ng-submit="submit()">
+            <table border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <th>Username</th>
+                <td><input type="text" class="login-inp" ng-model="username"/></td>
+              </tr>
+              <tr>
+                <th>Password</th>
+                <td><input type="password" class="login-inp" ng-model="password"/></td>
+              </tr>
+              <tr>
+                <th></th>
+                <td><input type="submit" class="submit-login"/></td>
+              </tr>
+            </table>
+          </form>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+
+    <div id="content" ng-controller="ContentController">
+
+      <h1>HTTP Auth Interceptor Module Demo</h1>
+      <h2>for AngularJS</h2>
+
+      <h3>What is the purpose of this demo?</h3>
+      <p>
+        This demo application is to show you the implementation of the concept
+        described in
+        <a href="http://www.espeo.pl/2012/02/26/authentication-in-angularjs-application">
+          Authentication in AngularJS (or similar) based application.
+        </a>
+      </p>
+      <p>
+        This application does not talk to real server, it uses
+        <a href="http://docs.angularjs.org/api/ngMockE2E"> ngMockE2E module</a> instead.
+      </p>
+      <p>
+        The HTTP Auth Interceptor module source code is available here:
+        <br>
+        <a href="https://github.com/witoldsz/angular-http-auth">
+          https://github.com/witoldsz/angular-http-auth
+        </a>
+      </p>
+      <p>
+        The source code of this demo is available in the same project as
+        a <a href="http://pages.github.com/">GitHub Pages</a> branch here:
+        <br>
+        <a href="https://github.com/witoldsz/angular-http-auth/tree/gh-pages">
+          https://github.com/witoldsz/angular-http-auth/tree/gh-pages
+        </a>
+      </p>
+      <hr>
+      <br>&nbsp;
+
+      <h3>Enter some data and submit to send and access protected data.</h3>
+      <form ng-submit="restrictedAction()">
+        Enter restricted data:
+        <input type="text" ng-model="restrictedData">
+        <input type="submit" value="Submit"></input>
+      </form>
+      <p ng-repeat="r in restrictedContent">Server says: {{r}}</p>
+
+      <br/>
+      <br/>
+
+      <h3>Press the button to log out.</h3>
+      <input type="button" value="Log out" ng-click="logout()"></input>
+      <p>
+        The button will tell the server to forget about your session and also
+        it will remove sensitive data from page.
+      </p>
+      <p>
+        In real application it could do
+        something else like:
+      </p>
+      <ul>
+        <li>forcing login window to appear to hide data,</li>
+        <li>reloading web page to purge application from received content or</li>
+        <li>whatever you find appropriate...</li>
+      </ul>
+
+      <div class="clear">&nbsp;</div>
+
+      <hr>
+      <br>&nbsp;
+
+    </div>
+  </div>
+
+
+  <script src="lib/jquery-1.8.2.min.js"></script>
+  <script src="lib/jquery.cookie.js"></script>
+  <script src="lib/angular/angular.js"></script>
+  <script src="lib/angular/angular-cookies.js"></script>
+  <script src="lib/http-auth-interceptor.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/directives.js"></script>
+</body>
+</html>
