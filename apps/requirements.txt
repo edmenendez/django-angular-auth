@@ -1,0 +1,14 @@
+Django==1.5
+#PIL==1.1.7
+South==0.7.6
+psycopg2==2.4.2
+#pycrypto==2.3
+virtualenv==1.6.4
+#wsgiref==0.1.2
+django-extensions==1.0.3
+django-debug-toolbar==0.9.4
+django-annoying==0.7.7
+django-tastypie==0.9.14
+#django-concurrent-server==0.1.0
+-e git+https://github.com/ashchristopher/django-concurrent-server@586989bda43be0a206c7f1d579d8c0f2a9
+a4580d#egg=django_concurrent_server-dev
