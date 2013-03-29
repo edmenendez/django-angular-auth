@@ -12,8 +12,9 @@ It's assumed you have Python and Postgres already installed.
 
 * Clone [django-angular-auth] locally.
 * Create a VirtualEnv and install the requirements via ```pip install -r requirements.txt```
+* Create a database in Postgres. Whatever database name and password used needs to be added to settings.py ~ line 12.
 * Run ```python manage.py syncdb --migrate```
-* Go into static directory and run ```python -m SimpleHTTPServer```. I created a serve.bat file for this. This is the Angular app.
+* Go into static directory and run ```python -m SimpleHTTPServer```. You should create a serve.bat file for this. This is the Angular app.
 * Start Django. ```python runserver 0.0.0.0:8001``` I created a batch file for this called r.bat. This is your API and admin.
 * Go to [http://localhost:8000/]. This is the Angular app. It's being served directly via SimpleHTTPServer. It can be served from anywhere, even Amazon. There might be cross domain issues if you're hosting on a different domain.
 
