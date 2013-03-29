@@ -10,5 +10,5 @@ django-debug-toolbar==0.9.4
 django-annoying==0.7.7
 django-tastypie==0.9.14
 #django-concurrent-server==0.1.0
--e git+https://github.com/ashchristopher/django-concurrent-server@586989bda43be0a206c7f1d579d8c0f2a9
-a4580d#egg=django_concurrent_server-dev
+git+https://github.com/ashchristopher/django-concurrent-server@586989bda43be0a206c7f1d579d8c0f2a9
+a4580d#egg=django_concurrent_server-dev#egg=Package
