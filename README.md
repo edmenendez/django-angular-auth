@@ -15,7 +15,7 @@ It's assumed you have Python and Postgres already installed.
 * Create a database in Postgres. Whatever database settings used needs to be added to apps/ch/settings.py ~ line 12. You could also make a settings_local file using your machine name and put that in settings_local/MACHINE_NAME.py
 * Run ```python manage.py syncdb --migrate```
 * Go into static directory and run ```python -m SimpleHTTPServer```. You should create a serve.bat file for this. This is the Angular app.
-* Start Django. ```python manage runserver 0.0.0.0:8001``` I created a batch file for this called r.bat. This is your API and admin.
+* Start Django. ```python manage.py runserver 0.0.0.0:8001``` I created a batch file for this called r.bat. This is your API and admin.
 * Go to [http://localhost:8000/]. This is the Angular app. It's being served directly via SimpleHTTPServer. It can be served from anywhere, even Amazon. There might be cross domain issues if you're hosting on a different domain.
 
 Use it
